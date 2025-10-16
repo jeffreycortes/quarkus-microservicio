@@ -73,3 +73,9 @@ Ejemplo de microservicio con quarkus
 - Crear un nuevo proyecto: ```mvn io.quarkus.platform:quarkus-maven-plugin:3.2.0.Final:create -DprojectGroupId=com.dian -DprojectArtifactId=certificados-manager -Dextensions="resteasy-jackson,quarkus-resteasy"```
 - Servir Api: ```./mvnw quarkus:dev```
 - Probar endpoint hello: http://localhost:8080/hello
+
+# 2. Primer Microservicio
+- Recurso base: Se crea la clase CertificadosResource con 2 paths (endpoints) que retornan un mensaje de vida con la versión y un mensaje estático.
+- Se preestablece el formato json del recurso
+- Se implementa ApiRESTFull
+- 
