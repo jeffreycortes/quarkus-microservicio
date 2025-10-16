@@ -63,5 +63,13 @@ Easily start your RESTful Web Services
 # quarkus-microservicio
 Ejemplo de microservicio con quarkus
 
+
+# Pre-requisitos
+- Java 17
+- Maven
+- intelliJ o editor de su preferencia
+
 # 1. Inicializacion
-mvn io.quarkus.platform:quarkus-maven-plugin:3.2.0.Final:create -DprojectGroupId=com.dian -DprojectArtifactId=certificados-manager -Dextensions="resteasy-jackson,quarkus-resteasy"
+- Crear un nuevo proyecto: ```mvn io.quarkus.platform:quarkus-maven-plugin:3.2.0.Final:create -DprojectGroupId=com.dian -DprojectArtifactId=certificados-manager -Dextensions="resteasy-jackson,quarkus-resteasy"```
+- Servir Api: ```./mvnw quarkus:dev```
+- Probar endpoint hello: http://localhost:8080/hello
