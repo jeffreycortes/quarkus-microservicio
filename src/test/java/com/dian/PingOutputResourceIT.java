@@ -3,6 +3,6 @@ package com.dian;
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 @QuarkusIntegrationTest
-class GreetingResourceIT extends GreetingResourceTest {
+class PingOutputResourceIT extends PingOutputResourceTest {
     // Execute the same tests but in packaged mode.
 }
