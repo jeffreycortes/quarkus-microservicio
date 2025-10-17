@@ -78,4 +78,13 @@ Ejemplo de microservicio con quarkus
 - Recurso base: Se crea la clase CertificadosResource con 2 paths (endpoints) que retornan un mensaje de vida con la versión y un mensaje estático.
 - Se preestablece el formato json del recurso
 - Se implementa ApiRESTFull
-- 
+- Se implementa SolicitudesCertificadosResource con paths que incluye:
+  - Paths con parametros de uri
+  - QueryParams opcionales, obligatorios, valores por defecto
+  - Bean de QueryString (estructura DTO)
+  - Validación de headers
+- Paths:
+  - ```curl --location 'http://localhost:8080/solicitudes/certificados/123?incluirDetalles=true&formato=json&filtro=activo&pagina=1&tama%C3%B1o=20' --header 'Authorization: Bearer 123456789' --header 'Origin: http://muisca.dian.gov.co'```
+  - ```curl --location --request POST 'http://localhost:8080/solicitudes/certificados/1/propio?nombre=01234456.pdf&precio=3500.00&cantidad=1' --header 'Authorization: Bearer 123456789' --header 'Origin: http://muisca.dian.gov.co'```
+  - ```curl --location 'http://localhost:8080/solicitudes/reportes?tipo=detallado&fechaInicio=2024-01-01&fechaFin=2024-01-31&limite=200' --header 'Authorization: Bearer 123456789' --header 'Origin: http://muisca.dian.gov.co'```
+- Comando para depurar proyecto: ```./mvnw quarkus:dev -Ddebug```. En intelliJ se debe agregar en configuración de depuración. Ver capturas de pantalla anexas de punto 2.
