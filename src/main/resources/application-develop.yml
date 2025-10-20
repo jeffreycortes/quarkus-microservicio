@@ -1,0 +1,17 @@
+app:
+  profile: 'develop'
+  alias: ${APP_SOBRENOMBRE:mypoc_dev}
+  database:
+    host: ${DB_HOST:localhost}
+    port: ${DB_PORT:3306}
+    name: ${DB_NAME:mi_base_datos}
+    user: ${DB_USER:usuario_default}
+    password: ${DB_PASSWORD:password_default}
+
+  server:
+    url: ${SERVER_URL:http://localhost:8080}
+    timeout: ${SERVER_TIMEOUT:30}
+
+  features:
+    enabled: ${FEATURES_ENABLED:true}
+    max-retries: ${MAX_RETRIES:3}
