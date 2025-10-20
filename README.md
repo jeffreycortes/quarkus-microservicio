@@ -102,3 +102,30 @@ Ejemplo de microservicio con quarkus
 - Despliegue de imagen (sin construcción o build): ```docker-compose -f src/main/docker/docker-compose.yml --project-directory . up -d``` (Ejecutar en raíz de proyecto)
 - Verificar los valores de configuración tanto perfil develop como release: ```curl --location 'http://localhost:8080/env/all'```
 - Destrucción de contenedores creados: ``` docker-compose -f src/main/docker/docker-compose.yml --project-directory . down``` (Ejecutar en raíz de proyecto)
+
+
+# 3. Persistencia de Datos
+## 3.1 Configuración de BD
+- Creación de archivo .env en la raíz del proyecto y agregar las siguientes variables de entorno para la configuración de la BD Mysql y la conexión co JDBC:
+```
+# Variables para el sevicio MySQL del docker-compose que la imagen usa de manera estándar 
+MYSQL_ROOT_PASSWORD=root_dev_demo_dian
+MYSQL_DATABASE=certificados
+MYSQL_USER=usr_demo_dian
+MYSQL_PASSWORD=pass_demo_dian
+
+# Variables del servicio App del docker-compose que serán usadas para el microservicio
+QUARKUS_PROFILE=develop
+APP_SOBRENOMBRE="Certificados manager service"
+DB_HOST=mysql
+DB_PORT=3306
+DB_NAME=certificados
+DB_USER=root
+DB_PASSWORD=root_dev_demo_dian
+```
+- Se habilita servicio mysql en docker-compose
+- Se agrega uso del archivo .env para el microservicio en el docker-compose (servicio app)
+- Se establece dependencia entre el servicio app y mysql en el docker-compose
+- Ejecutar docker-compose para que despliegue la BD sin el app: - Despliegue de imagen (sin construcción o build): ```docker-compose -f src/main/docker/docker-compose.yml --project-directory . up -d mysql```
+- Verificar que la BD esté disponible: ```docker exec -it quarkus-microservicio-mysql-1 mysql -u root -proot_dev_demo_dian -e "SHOW DATABASES;"``` -> En el ejemplo el nombre representa el nombre del contenedor, también puede usarse el id del contenedor.
+- Verificar los valores de configuración (variables de entorno)
