@@ -75,7 +75,8 @@ Ejemplo de microservicio con quarkus
 - Probar endpoint hello: http://localhost:8080/hello
 
 # 2. Primer Microservicio
-- Recurso base: Se crea la clase CertificadosResource con 2 paths (endpoints) que retornan un mensaje de vida con la versión y un mensaje estático.
+## 2.1 Proyecto base
+- Se crea la clase CertificadosResource con 2 paths (endpoints) que retornan un mensaje de vida con la versión y un mensaje estático.
 - Se preestablece el formato json del recurso
 - Se implementa ApiRESTFull
 - Se implementa SolicitudesCertificadosResource con paths que incluye:
@@ -88,3 +89,15 @@ Ejemplo de microservicio con quarkus
   - ```curl --location --request POST 'http://localhost:8080/solicitudes/certificados/1/propio?nombre=01234456.pdf&precio=3500.00&cantidad=1' --header 'Authorization: Bearer 123456789' --header 'Origin: http://muisca.dian.gov.co'```
   - ```curl --location 'http://localhost:8080/solicitudes/reportes?tipo=detallado&fechaInicio=2024-01-01&fechaFin=2024-01-31&limite=200' --header 'Authorization: Bearer 123456789' --header 'Origin: http://muisca.dian.gov.co'```
 - Comando para depurar proyecto: ```./mvnw quarkus:dev -Ddebug```. En intelliJ se debe agregar en configuración de depuración. Ver capturas de pantalla anexas de punto 2.
+## 2.2 configuracion, contenerizacion y constucción con variables de entorno
+- Se agrega la dependencia: quarkus-config-yaml para uso de yml en vez de .propperties como archivo de configuración
+- Se elimina application.properties
+- Se crea el archivo application.yml
+- Se crean archivos de perfiles de configuración develop y release
+- Se crea EnvironmentService mapeando los valores del application
+- Se crea EnvironmentResource para exponer los valores de entorno heredados del application.yml
+- Se crea docker-compose.yml con la configuracion para la construcción del microservicio usando la imagen para jvm
+- Compilación: ```./mvnw package```
+- Contrucción y despliegue de imagen en contenedor docker: ```docker-compose -f src/main/docker/docker-compose.yml --project-directory . up --build -d``` (Ejecutar en raíz de proyecto)
+- Despliegue de imagen (sin construcción o build): ```docker-compose -f src/main/docker/docker-compose.yml --project-directory . up -d``` (Ejecutar en raíz de proyecto)
+- Destrucción de contenedores creados: ``` docker-compose -f src/main/docker/docker-compose.yml --project-directory . down``` (Ejecutar en raíz de proyecto)
