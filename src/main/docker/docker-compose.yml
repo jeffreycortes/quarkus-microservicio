@@ -26,8 +26,8 @@ services:
       SERVER_TIMEOUT: "60"
       FEATURES_ENABLED: "true"
       MAX_RETRIES: "5"
-    #depends_on:
-      #- mysql
+    depends_on:
+      - mysql
 
 volumes:
   mysql_data:
