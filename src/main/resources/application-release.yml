@@ -1,3 +1,20 @@
+quarkus:
+  profile: release
+  log:
+    level: INFO
+    category:
+      "com.tuapp":
+        level: WARN
+  hibernate-orm:
+    log:
+      sql: false
+    database:
+      generation: validate
+  datasource:
+    jdbc:
+      url: jdbc:mysql://${DB_HOST}:3306/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
 app:
   profile: 'release'
   alias: ${APP_SOBRENOMBRE:mypoc_release}
