@@ -100,4 +100,5 @@ Ejemplo de microservicio con quarkus
 - Compilación: ```./mvnw package```
 - Contrucción y despliegue de imagen en contenedor docker: ```docker-compose -f src/main/docker/docker-compose.yml --project-directory . up --build -d``` (Ejecutar en raíz de proyecto)
 - Despliegue de imagen (sin construcción o build): ```docker-compose -f src/main/docker/docker-compose.yml --project-directory . up -d``` (Ejecutar en raíz de proyecto)
+- Verificar los valores de configuración tanto perfil develop como release: ```curl --location 'http://localhost:8080/env/all'```
 - Destrucción de contenedores creados: ``` docker-compose -f src/main/docker/docker-compose.yml --project-directory . down``` (Ejecutar en raíz de proyecto)
