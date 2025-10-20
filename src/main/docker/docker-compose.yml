@@ -1,0 +1,32 @@
+# docker-compose.yml
+services:
+  #mysql:
+    #image: mysql:8.0
+    #env_file:
+      #- .env
+    #ports:
+      #- "3306:3306"
+    #volumes:
+      #- mysql_data:/var/lib/mysql
+    #command: --default-authentication-plugin=mysql_native_password
+
+  app:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.jvm
+    image: quarkus/certificados-manager
+    ports:
+      - "8080:8080"
+    environment:
+      APP_NAME: "CertificadosManager"
+      APP_VERSION: "2.0.0"
+      APP_RUNTIME_ENV: "docker"
+      SERVER_URL: "http://localhost:8080"
+      SERVER_TIMEOUT: "60"
+      FEATURES_ENABLED: "true"
+      MAX_RETRIES: "5"
+    #depends_on:
+      #- mysql
+
+#volumes:
+  #mysql_data:
