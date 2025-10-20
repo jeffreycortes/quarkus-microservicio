@@ -129,3 +129,24 @@ DB_PASSWORD=root_dev_demo_dian
 - Ejecutar docker-compose para que despliegue la BD sin el app: - Despliegue de imagen (sin construcción o build): ```docker-compose -f src/main/docker/docker-compose.yml --project-directory . up -d mysql```
 - Verificar que la BD esté disponible: ```docker exec -it quarkus-microservicio-mysql-1 mysql -u root -proot_dev_demo_dian -e "SHOW DATABASES;"``` -> En el ejemplo el nombre representa el nombre del contenedor, también puede usarse el id del contenedor.
 - Verificar los valores de configuración (variables de entorno)
+## 3.2 Configuración y Persistencia de datos con Panache ORM
+- Agregar las dependencias al proyecto en el pom.xml de panache hibernate ORM y JDBC para Mysql:
+```
+    <!-- Panache para Hibernate ORM -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-orm-panache</artifactId>
+    </dependency>
+    <!-- Driver JDBC para MySQL -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-mysql</artifactId>
+    </dependency>
+```
+- Se agregan valores de configuración en los perfiles de configuración
+- Se crea Entidad de Producto que representa el esquema de la tabla Productos de la BD certificados
+- Se crea Repositorio de Productos
+- Se crea Resource de Productos
+- Depurar en local: ```./mvnw quarkus:dev -Dquarkus.profile=develop``` o ```./mvnw quarkus:dev -Dquarkus.profile=release```
+- Crear un producto con: ```curl --location 'http://localhost:8080/products' --header 'Content-Type: application/json' --data '{"name": "iPhone", "price": 899.99}'```
+- verificar que exista en la BD del contenedor: ```docker exec -it quarkus-microservicio-mysql-1 mysql -u root -proot_dev_demo_dian -e "USE certificados; SELECT * FROM products;"```
