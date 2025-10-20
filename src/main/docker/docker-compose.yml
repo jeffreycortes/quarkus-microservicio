@@ -14,6 +14,8 @@ services:
       context: .
       dockerfile: src/main/docker/Dockerfile.jvm
     image: quarkus/certificados-manager
+    env_file:
+      - .env
     ports:
       - "8080:8080"
     environment:
