@@ -1,0 +1,13 @@
+quarkus:
+  http:
+    port: 8080
+  log:
+    level: INFO
+
+app:
+  # Variables con valores por defecto que se pueden sobreescribir con env vars
+  name: ${APP_NAME:MiAppQuarkus}
+  version: ${APP_VERSION:1.0.0}
+  environment: ${APP_RUNTIME_ENV:local}
+  profile: 'sin definir'
+  alias: 'microservicio x'
