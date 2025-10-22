@@ -2,9 +2,17 @@ quarkus:
   profile: develop
   log:
     level: DEBUG
+    category:
+      "org.hibernate.SQL":
+        level: DEBUG
+      "org.hibernate.type.descriptor.sql.BasicBinder":
+        level: TRACE
+      "org.hibernate.orm.jdbc.bind":
+        level: TRACE
   hibernate-orm:
     log:
       sql: true
+      bind-parameters: true
     database:
       generation: drop-and-create
   datasource:
