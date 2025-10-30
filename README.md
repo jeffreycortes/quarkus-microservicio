@@ -150,3 +150,15 @@ DB_PASSWORD=root_dev_demo_dian
 - Depurar en local: ```./mvnw quarkus:dev -Dquarkus.profile=develop``` o ```./mvnw quarkus:dev -Dquarkus.profile=release```
 - Crear un producto con: ```curl --location 'http://localhost:8080/products' --header 'Content-Type: application/json' --data '{"name": "iPhone", "price": 899.99}'```
 - verificar que exista en la BD del contenedor: ```docker exec -it quarkus-microservicio-mysql-1 mysql -u root -proot_dev_demo_dian -e "USE certificados; SELECT * FROM products;"```
+- Se agrega adminer como servicio del docker-compose como administrador rápido e interfaz para acceder a la BD
+- Se agregan logs detallados de BD en perfil de desarrollo
+## 3.3 validaciòn de datos con Se agrega dependencia de validación quarkus-hibernate-validator
+- Se agrega dependencia de validación quarkus-hibernate-validator
+- Se crea ResponseApiError como dto para mapear errores del microservicio
+- Se crea ResponseApi como dto de respuesta estándar del microservicio
+- Se crea ValidationExceptionMapper para capturar el error emitido por la anotación @valid
+- Se mueven a archivos independientes CertificadoDto y CertificadoResourceVersion y se integran a CertificadoResource
+- Probar el endpoint POST http://localhost:8080/certificados/ con un CertificadoDto que contenga los errores controlados:
+```
+curl --location 'http://localhost:8080/certificados/' --header 'Content-Type: application/json' --data '{"nombre": null,"costo": -1}'
+```
