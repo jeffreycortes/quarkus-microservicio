@@ -1,5 +1,7 @@
-package com.dian;
+package com.dian.common;
 
+import com.dian.ResponseApi;
+import com.dian.ResponseApiError;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.Response;

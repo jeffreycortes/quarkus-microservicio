@@ -1,4 +1,4 @@
-package com.dian;
+package com.dian.common;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;

@@ -1,4 +1,4 @@
-package com.dian;
+package com.dian.common;
 
 import lombok.Data;
 

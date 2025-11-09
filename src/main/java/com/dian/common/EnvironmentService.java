@@ -1,4 +1,4 @@
-package com.dian;
+package com.dian.common;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
