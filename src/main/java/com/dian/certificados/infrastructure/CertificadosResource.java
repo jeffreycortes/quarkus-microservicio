@@ -1,5 +1,7 @@
-package com.dian;
+package com.dian.certificados.infrastructure;
 
+import com.dian.certificados.application.CertificadoDto;
+import com.dian.certificados.domain.CertificadoResourceVersion;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

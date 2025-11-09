@@ -1,5 +1,6 @@
-package com.dian;
+package com.dian.certificados.infrastructure;
 
+import com.dian.common.Filtros;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.HttpHeaders;

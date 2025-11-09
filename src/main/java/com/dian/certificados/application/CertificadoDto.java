@@ -1,4 +1,4 @@
-package com.dian;
+package com.dian.certificados.application;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
