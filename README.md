@@ -162,3 +162,9 @@ DB_PASSWORD=root_dev_demo_dian
 ```
 curl --location 'http://localhost:8080/certificados/' --header 'Content-Type: application/json' --data '{"nombre": null,"costo": -1}'
 ```
+#4. Crear un cliente REST para consumir servicios o APIS externas por http
+- Se agrega dependencia de quarkus-resteasy-client-jackson para hacer peticiones http externas
+- Se agrega configuracion para el rest-client en los archivos yml para consumir el API pokemon-api
+- Se crea Pokemon como entidad de agregado con la estructura de respuesta del API de pokemon
+- Se crean Dtos de respuesta de los casos de uso del API pokemon
+- Se crea cliente rest para consumir el API de pokemon implementando los dtos y la entidad junto con excepciones de la integración 
