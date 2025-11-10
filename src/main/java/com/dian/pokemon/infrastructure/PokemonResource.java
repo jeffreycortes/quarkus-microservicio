@@ -1,5 +1,8 @@
-package com.dian;
+package com.dian.pokemon.infrastructure;
 
+import com.dian.common.ErrorResponse;
+import com.dian.pokemon.application.PokemonListResponse;
+import com.dian.pokemon.application.PokemonService;
 import com.dian.pokemon.domain.Pokemon;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

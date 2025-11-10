@@ -1,4 +1,4 @@
-package com.dian;
+package com.dian.pokemon.infrastructure;
 
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;

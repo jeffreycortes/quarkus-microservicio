@@ -1,4 +1,4 @@
-package com.dian;
+package com.dian.pokemon.infrastructure;
 
 import com.dian.pokemon.domain.Pokemon;
 import jakarta.enterprise.context.ApplicationScoped;

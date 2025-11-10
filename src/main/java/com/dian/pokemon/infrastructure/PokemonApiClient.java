@@ -1,5 +1,7 @@
-package com.dian;
+package com.dian.pokemon.infrastructure;
 
+import com.dian.pokemon.application.PokemonListResponse;
+import com.dian.pokemon.domain.Pokemon;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import jakarta.ws.rs.*;
