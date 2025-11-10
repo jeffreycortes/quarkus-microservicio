@@ -1,7 +1,8 @@
-package com.dian;
+package com.dian.productos.domain;
 
 import java.util.List;
 import java.util.Optional;
+
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 

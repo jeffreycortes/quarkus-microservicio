@@ -1,5 +1,7 @@
-package com.dian;
+package com.dian.productos.infrastructure;
 
+import com.dian.productos.domain.ProductoEntity;
+import com.dian.productos.domain.ProductosRepository;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
