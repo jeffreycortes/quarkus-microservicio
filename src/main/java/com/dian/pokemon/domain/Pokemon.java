@@ -1,4 +1,4 @@
-package com.dian;
+package com.dian.pokemon.domain;
 
 import lombok.Data;
 import java.util.List;
