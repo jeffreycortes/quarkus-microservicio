@@ -17,9 +17,14 @@ quarkus:
       generation: drop-and-create
   datasource:
     jdbc:
-      url: jdbc:mysql://${DB_HOST:localhost}:3306/${DB_NAME:certificados}
-    username: ${DB_USER:p_demo_dian}
-    password: ${DB_PASSWORD:dev_demo_dian}
+      url: jdbc:mysql://localhost:3306/certificados
+    username: root
+    password: root_dev_demo_dian
+  rest-client:
+    pokemon-api:
+      url: https://pokeapi.co/api/v2/
+      connect-timeout: 5000
+      read-timeout: 10000
 app:
   profile: 'develop'
   alias: ${APP_SOBRENOMBRE:mypoc_dev}
