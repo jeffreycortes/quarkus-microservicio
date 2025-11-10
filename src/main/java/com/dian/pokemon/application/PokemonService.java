@@ -1,5 +1,8 @@
-package com.dian;
+package com.dian.pokemon.application;
 
+import com.dian.pokemon.infrastructure.PokemonApiException;
+import com.dian.pokemon.infrastructure.PokemonCacheService;
+import com.dian.pokemon.infrastructure.PokemonNotFoundException;
 import com.dian.pokemon.domain.Pokemon;
 import com.dian.pokemon.infrastructure.PokemonApiClient;
 import jakarta.enterprise.context.ApplicationScoped;
